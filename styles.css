@@ -1,166 +1,197 @@
-:root {
-  --bg: #f77721;
-  --text: #0b0b0f;
-  --muted: #2f2f3a;
-  --accent: #9cd6ff;
-  --ghost: rgba(255, 255, 255, 0.14);
-  --card: rgba(255, 255, 255, 0.08);
-  --white: #ffffff;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-}
-
 * {
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  min-height: 100vh;
-  background: var(--bg);
-  color: var(--text);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden;
 }
 
-.page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 56px 24px 64px;
-  gap: 48px;
+.container {
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+    animation: fadeIn 1s ease-in;
 }
 
-.hero {
-  text-align: center;
-  max-width: 720px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo-container {
+    margin-bottom: 40px;
 }
 
 .logo {
-  width: min(70vw, 520px);
-  height: auto;
+    font-size: 120px;
+    font-weight: 900;
+    letter-spacing: 8px;
+    background: linear-gradient(to right, 
+        #7dd3fc 0%,      /* Light cyan/blue for N */
+        #60a5fa 25%,     /* Transition */
+        #3b82f6 50%,     /* Blue for O */
+        #2563eb 75%,     /* Blue for H */
+        #1d4ed8 100%     /* Light blue for A */
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+    animation: glow 2s ease-in-out infinite alternate;
+    line-height: 1.2;
 }
 
-.eyebrow {
-  margin: 8px 0 0;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: var(--muted);
+@keyframes glow {
+    from {
+        filter: brightness(1);
+    }
+    to {
+        filter: brightness(1.2);
+    }
 }
 
-h1 {
-  margin: 0;
-  font-size: clamp(42px, 8vw, 82px);
-  letter-spacing: -0.02em;
-  color: var(--text);
+.content {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    padding: 60px 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    animation: slideUp 1s ease-out 0.3s both;
 }
 
-.lede {
-  margin: 8px 0 0;
-  font-size: 18px;
-  line-height: 1.6;
-  color: var(--muted);
-  max-width: 580px;
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.cta-row {
-  display: flex;
-  gap: 12px;
-  margin-top: 22px;
-  flex-wrap: wrap;
-  justify-content: center;
+.tagline {
+    font-size: 36px;
+    color: #ff6b35;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
 }
 
-.btn {
-  text-decoration: none;
-  padding: 14px 22px;
-  border-radius: 12px;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease, color 0.2s ease;
+.coming-soon {
+    font-size: 48px;
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+    margin-bottom: 30px;
+    letter-spacing: 4px;
 }
 
-.btn.primary {
-  background: linear-gradient(120deg, #d7ffb5 0%, #9cd6ff 100%);
-  color: #0c2230;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.16);
+.description {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 50px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.btn.ghost {
-  color: var(--white);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  background: var(--ghost);
-  backdrop-filter: blur(6px);
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
-}
-
-.btn:active {
-  transform: translateY(0);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+.founder-info {
+    padding-top: 40px;
+    border-top: 2px solid #ff6b35;
+    margin-top: 40px;
 }
 
 .founder {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+    font-size: 16px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    font-weight: 600;
 }
 
-.founder-card {
-  background: var(--card);
-  padding: 24px 26px;
-  border-radius: 18px;
-  width: min(860px, 100%);
-  color: var(--white);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(4px);
+.founder-name {
+    font-size: 28px;
+    color: #ff6b35;
+    font-weight: 700;
+    letter-spacing: 2px;
 }
 
-.founder-meta {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
+.footer {
+    margin-top: 40px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
 }
 
-.label {
-  margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.7);
+/* Responsive Design */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 80px;
+        letter-spacing: 4px;
+    }
+    
+    .tagline {
+        font-size: 28px;
+    }
+    
+    .coming-soon {
+        font-size: 36px;
+        letter-spacing: 2px;
+    }
+    
+    .description {
+        font-size: 16px;
+    }
+    
+    .content {
+        padding: 40px 30px;
+    }
+    
+    .founder-name {
+        font-size: 24px;
+    }
 }
 
-.name {
-  margin: 0;
-  font-weight: 800;
-  font-size: 18px;
-  color: var(--white);
-}
-
-.quote {
-  margin: 12px 0 0;
-  font-size: 18px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.88);
-}
-
-@media (max-width: 640px) {
-  .page {
-    padding: 40px 18px 56px;
-  }
-
-  .btn {
-    width: 100%;
-    text-align: center;
-  }
-
-  .founder-card {
-    padding: 20px;
-  }
+@media (max-width: 480px) {
+    .logo {
+        font-size: 60px;
+        letter-spacing: 2px;
+    }
+    
+    .tagline {
+        font-size: 24px;
+    }
+    
+    .coming-soon {
+        font-size: 28px;
+        letter-spacing: 1px;
+    }
+    
+    .description {
+        font-size: 14px;
+    }
+    
+    .content {
+        padding: 30px 20px;
+    }
 }
 
